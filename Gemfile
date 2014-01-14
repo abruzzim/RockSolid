@@ -1,12 +1,21 @@
 source 'https://rubygems.org'
 
+# For Heroku
+ruby '2.0.0'
+
 gem 'rails', '3.2.16'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'pg'
-
+# WDI Project 1
+gem 'pry'
+gem 'pry-rails'
+gem 'rspec'
+gem 'rspec-rails'
+gem 'capybara'
+gem 'devise'
 
 # Gems used only for assets and not required
 # in production environments by default.

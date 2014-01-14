@@ -1,3 +1,47 @@
+== RockSolid - WDI Project 1 Notes
+
+Stories (in progress)
+-------
+
+- User creates Account.
+
+- User signs in.
+
+- User creates Order.
+  - Implies -> Add Cust. -> Add Cust. Addr. -> Gem call -> Add Cargo -> Add Rock
+    - When a user visits the Order creation path;
+      - 
+
+
+Description/Pitch
+-----------------
+
+Rock quarry land owner's are losing revenue because of inefficient paper-based 
+materials management workflows.
+
+RockSolid is a web application prototype that will allow rock quarry operators 
+to efficiently manage and track the resources being mined from the quarry site.
+
+Features:
+
+- Tracks raw material that leaves the quarry site for delivery in a "RockTicket".
+- Manages customers, orders, and deliveries.
+- Prices customer orders.
+- Tracks land owner's revenue.
+- Route optimization -> fuel economy -> time economy.
+
+Project Plan
+------------
+
+- Establish database schema.
+- Wireframe core web pages.
+- Write functional specifications.
+- Perform TDD.
+- Document and unit test object model associations.
+- Test Heroku deployment with primative.
+- Read about Geocoder gem.
+- Read about Devise user authentication.
+
 == Welcome to Rails
 
 Rails is a web-application framework that includes everything needed to create

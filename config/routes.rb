@@ -1,6 +1,7 @@
 Rocksolid5::Application.routes.draw do
   # Define root URL for Devise.
   root :to => "home#index"
+  get '/setup' => "home#setup"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

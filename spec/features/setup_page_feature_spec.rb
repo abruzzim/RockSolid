@@ -17,20 +17,19 @@ describe 'Setup webpage:' do
           expect(page).to have_link('Home', :href => '/')
         end
         it 'should have link to Customer,' do
-          pending
-          expect(page).to have_link('Customer', :href => '<%= _path %>')
+          expect(page).to have_link('Customer', :href => '/customers')
         end
         it 'should have link to Driver,' do
           pending
-          expect(page).to have_link('Driver', :href => '<%= _path %>')
+          expect(page).to have_link('Driver', :href => '/drivers')
         end
         it 'should have link to Truck,' do
           pending
-          expect(page).to have_link('Truck', :href => '<%= _path %>')
+          expect(page).to have_link('Truck', :href => '/trucks')
         end
         it 'should have link to Catalog,' do
           pending
-          expect(page).to have_link('Catalog', :href => '<%= _path %>')
+          expect(page).to have_link('Catalog', :href => '/rocks')
         end
       end
     end

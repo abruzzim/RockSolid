@@ -22,7 +22,7 @@ describe 'Customer Index webpage:' do
             expect(page).to have_link('Setup', :href => '/setup')
           end
           it 'should have a link to Add' do
-            expect(page).to have_link('Add', :href => 'new_customer_path')
+            expect(page).to have_link('Add', :href => '/customers/new')
           end
         end
       end

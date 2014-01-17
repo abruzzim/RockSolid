@@ -1,0 +1,18 @@
+<h2>Customer Entry Form</h2>
+  <!-- Add New Customer Web Form -->
+  <form method="post" action="<%= customers_path %>">
+    <fieldset>
+      <legend><span>Customer Info</span></legend>
+      <label for="one">: </label>
+      <input id="one" type="text" name="name" value="" placeholder="Name"/>
+      <label for="two">: </label>
+      <input id="two" type="text" name="street" value="" placeholder="Address"/>
+      <label for="three">: </label>
+      <input id="three" type="text" name="city" value="" placeholder="City"/>
+      <label for="four">: </label>
+      <input id="four" type="text" name="state" value="" placeholder="State"/>
+      <label for="five">: </label>
+      <input id="five" type="text" name="zip" value="" placeholder="Zip"/>
+      <button type="submit">Add</button>
+    </fieldset>
+  </form>

@@ -1,18 +1,27 @@
-<h2>Customer Entry Form</h2>
-  <!-- Add New Customer Web Form -->
-  <form method="post" action="/customers">
-    <fieldset>
-      <legend><span>Customer Info</span></legend>
-      <label for="one">Last Name: </label>
-      <input id="one" type="text" name="name" value="" placeholder="Name"/>
-      <label for="two">Street: </label>
-      <input id="two" type="text" name="street" value="" placeholder="Address"/>
-      <label for="three">City: </label>
-      <input id="three" type="text" name="city" value="" placeholder="City"/>
-      <label for="four">State: </label>
-      <input id="four" type="text" name="state" value="" placeholder="State"/>
-      <label for="five">Zip: </label>
-      <input id="five" type="text" name="zip" value="" placeholder="Zip"/>
-      <button type="submit">Add</button>
-    </fieldset>
-  </form>
+<h2>New Customer Entry Form</h2>
+<% content_for(:navbar) do %>
+  <div>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/customers">Back</a>
+    </nav>
+  </div>
+<% end %>
+<!-- Add New Customer Web Form -->
+<!-- customers POST /customers(.:format) customers#create -->
+<form method="post" action="/customers">
+  <fieldset>
+    <legend><span>Customer Info</span></legend>
+    <label for="one">Last Name: </label>
+    <input id="one" type="text" name="name" value="" placeholder="Name"/>
+    <label for="two">Street: </label>
+    <input id="two" type="text" name="street" value="" placeholder="Address"/>
+    <label for="three">City: </label>
+    <input id="three" type="text" name="city" value="" placeholder="City"/>
+    <label for="four">State: </label>
+    <input id="four" type="text" name="state" value="" placeholder="State"/>
+    <label for="five">Zip: </label>
+    <input id="five" type="text" name="zip" value="" placeholder="Zip"/>
+    <button type="submit">Add</button>
+  </fieldset>
+</form>

@@ -1,30 +1,32 @@
 <h2>Order (home/index.html.erb)</h2>
+<% content_for(:navbar) do %>
   <div>
     <nav>
       <a href="#">Create (Pending)</a>
       <a href="/setup">Setup</a>
     </nav>
   </div>
-  <div>
-    <table>
-      <thead>
-        <tr>
-          <th>Order Number</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>
-            <form>
-              <button>Edit</button>
-            </form>
-          </td>
-          <td>
-            <form>
-              <button>Delete</button>
-            </form>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+<% end %>
+<div>
+  <table>
+    <thead>
+      <tr>
+        <th>Order Number</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <form>
+            <button>Edit</button>
+          </form>
+        </td>
+        <td>
+          <form>
+            <button>Delete</button>
+          </form>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

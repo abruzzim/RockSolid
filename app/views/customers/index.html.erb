@@ -1,43 +1,50 @@
 <h2>Customer (customers/index.html.erb)</h2>
+<% content_for(:navbar) do %>
   <div>
     <nav>
       <a href="/">Home</a>
       <a href="/setup">Setup</a>
+      <!-- new_customer GET /customers/new(.:format) customers#new -->
       <a href="/customers/new">Add</a>
     </nav>
   </div>
-<table border="1">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Street</th>
-      <th>City</th>
-      <th>State</th>
-      <th>Zip</th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @customers.each do |customer| %>
-    <tr>
-      <td><%= customer.name %></td>
-      <td><%= customer.addresses.first.street %></td>
-      <td><%= customer.addresses.first.city %></td>
-      <td><%= customer.addresses.first.state %></td>
-      <td><%= customer.addresses.first.zip %></td>
-      <td>
-        <form method="get" action="/customers/<%= customer.id %>/edit">
-          <button type="submit">Edit</button>
-        </form>
-      </td>
-      <td>
-        <form method="post" action="/customers/<%= customer.id %>">
-          <input type="hidden" name="_method" value="delete" />
-          <button type="submit">Delete</button>
-        </form>
-      </td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+<% end %>
+<div>
+  <table border="1">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Street</th>
+        <th>City</th>
+        <th>State</th>
+        <th>Zip</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @customers.each do |customer| %>
+      <tr>
+        <td><%= customer.name %></td>
+        <td><%= customer.addresses.first.street %></td>
+        <td><%= customer.addresses.first.city %></td>
+        <td><%= customer.addresses.first.state %></td>
+        <td><%= customer.addresses.first.zip %></td>
+        <td>
+          <!-- edit_customer GET /customers/:id/edit(.:format) customers#edit -->
+          <form method="get" action="/customers/<%= customer.id %>/edit">
+            <button type="submit">Edit</button>
+          </form>
+        </td>
+        <td>
+          <!-- customer? DELETE /customers/:id(.:format) customers#destroy -->
+          <form method="post" action="/customers/<%= customer.id %>">
+            <input type="hidden" name="_method" value="delete" />
+            <button type="submit">Delete</button>
+          </form>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+<div>

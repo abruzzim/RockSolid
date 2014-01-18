@@ -41,12 +41,11 @@ class CustomersController < ApplicationController
     # Update row from template view parameters.
     c = Customer.find(params[:id])
     c.name                   = params[:name]
-    c.addresses.first.street = params[:street]
-    c.addresses.first.city   = params[:city]
-    c.addresses.first.state  = params[:state]
-    c.addresses.first.zip    = params[:zip]
-    c.save
-    # Call index template view.
+    c.addresses.first.update_attributes(street: params[:street])
+    c.addresses.first.update_attributes(city: params[:city])
+    c.addresses.first.update_attributes(state: params[:state])
+    c.addresses.first.update_attributes(zip: params[:zip])
+    # Call index.html.erb
     redirect_to customers_path
   end
 

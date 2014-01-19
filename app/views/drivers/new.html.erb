@@ -1,0 +1,30 @@
+<%#= debug(assigns) %>
+<%#= debug(headers) %>
+<%#= debug(params) %>
+<%#= debug(session) %>
+<%#= debug(controller) %>
+<%#= debug(flash) %>
+<%#= debug(request) %>
+<%#= debug(response) %>
+
+<h2>New Driver Entry Form</h2>
+<% content_for(:navbar) do %>
+  <div>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/drivers">Back</a></li>
+      </ul>
+    </nav>
+  </div>
+<% end %>
+<!-- Add New Driver Web Form -->
+<!-- drivers POST /drivers(.:format) drivers#create -->
+<form method="post" action="/drivers">
+  <fieldset>
+    <legend><span>Driver Info</span></legend>
+    <label for="one">Last Name: </label>
+    <input id="one" type="text" name="name" value="<%= @driver.name %>" placeholder="Last Name"/>
+    <button type="submit">Add</button>
+  </fieldset>
+</form>

@@ -1,17 +1,18 @@
 class CustomersController < ApplicationController
-
+  # GET /customers
   def index
     # Get collection of objects.
     @customers = Customer.all
-    # Call index template view.
+    # Call index.html.erb
   end
-
+  # GET /customers/new
   def new
-    # Call new template view.
+    # Why not Create a new object.
+    # Call new.html.erb
   end
-
+  # POST /customers
   def create
-    # Create row from template view parameters.
+    # Create row from view parameters.
     Address.create({
       street:      params[:street],
       city:        params[:city],
@@ -21,10 +22,10 @@ class CustomersController < ApplicationController
                     name: params[:name]
                    }).id
       })
-    # Call index template view.
+    # Redirect to index.html.erb
     redirect_to customers_path
   end
-
+  # GET /customers/1/edit
   def edit
     # Get selected object by id.
     c = Customer.find(params[:id])
@@ -34,9 +35,9 @@ class CustomersController < ApplicationController
     @city   = c.addresses.first.city
     @state  = c.addresses.first.state
     @zip    = c.addresses.first.zip
-    # Call edit template view.
+    # Call edit.html.erb
   end
-
+  # PUT /customers/1
   def update
     # Update row from template view parameters.
     c = Customer.find(params[:id])
@@ -48,7 +49,7 @@ class CustomersController < ApplicationController
     # Call index.html.erb
     redirect_to customers_path
   end
-
+  # DELETE /customers/1
   def destroy
     # Delete selected object by id.
     c = Customer.find(params[:id])
@@ -56,7 +57,7 @@ class CustomersController < ApplicationController
       Address.find(id).delete
     end
     c.delete
-    # Call index template view.
+    # Call index.html.erb
     redirect_to customers_path
   end
 

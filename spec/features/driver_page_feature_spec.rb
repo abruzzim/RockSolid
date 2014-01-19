@@ -3,7 +3,7 @@ require 'spec_helper'
 describe 'Driver Index webpage:' do
   before do
     @appl_name = "RockSolid"
-    @page_name = "Driver Management"
+    @page_name = "Driver Listing"
   end
   describe 'when the Driver Index webpage is visited,' do
     before do
@@ -43,6 +43,9 @@ describe 'Driver Index webpage:' do
         end
         it 'table column 1 should be Name,' do
           expect(page).to have_css('body div table thead tr th', text: @col1)
+        end
+        it 'should have an Show button,' do
+          page.has_selector?('body div table tbody tr td form button#Show')
         end
         it 'should have an Edit button,' do
           page.has_selector?('body div table tbody tr td form button#Edit')

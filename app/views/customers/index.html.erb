@@ -2,10 +2,12 @@
 <% content_for(:navbar) do %>
   <div>
     <nav>
-      <a href="/">Home</a>
-      <a href="/setup">Setup</a>
-      <!-- new_customer GET /customers/new(.:format) customers#new -->
-      <a href="/customers/new">Add</a>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/setup">Setup</a></li>
+        <!-- new_customer GET /customers/new(.:format) customers#new -->
+        <li><a href="/customers/new">Add</a></li>
+      </ul>
     </nav>
   </div>
 <% end %>

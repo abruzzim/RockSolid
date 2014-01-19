@@ -1,0 +1,60 @@
+<%#= debug(assigns) %>
+<%#= debug(headers) %>
+<%#= debug(params) %>
+<%#= debug(session) %>
+<%#= debug(controller) %>
+<%#= debug(flash) %>
+<%#= debug(request) %>
+<%#= debug(response) %>
+
+<h2>Drivers Management</h2>
+<% content_for(:navbar) do %>
+  <div>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/setup">Setup</a></li>
+        <!-- new_customer GET /customers/new(.:format) customers#new -->
+        <li><a href="/drivers/new">Add</a></li>
+      </ul>
+    </nav>
+  </div>
+<% end %>
+<div>
+  <table border="1">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @drivers.each do |driver| %>
+      <tr>
+        <td><%= driver.name %></td>
+        <td>
+          <!-- driver GET /drivers/:id(.:format) drivers#show -->
+          <form method="get" action="/drivers/<%= driver.id %>">
+            <button type="submit">Show</button>
+          </form>
+        </td>
+        <td>
+          <!-- edit_driver GET /drivers/:id/edit(.:format) drivers#edit -->
+          <form method="get" action="/drivers/<%= driver.id %>/edit">
+            <button type="submit">Edit</button>
+          </form>
+        </td>
+        <td>
+          <!-- driver? DELETE /drivers/:id(.:format) drivers#destroy -->
+          <form method="post" action="/drivers/<%= driver.id %>">
+            <input type="hidden" name="_method" value="delete" />
+            <button type="submit">Delete</button>
+          </form>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+<div>

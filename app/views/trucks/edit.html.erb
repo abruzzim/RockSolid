@@ -1,0 +1,33 @@
+<%#
+ Filename: app/views/trucks/edit.html.erb
+ Directory: /Users/abruzzim/Documents/ga_wdi/projects/rocksolid/
+ Author: Mario Abruzzi
+ Date: 17-Jan-2014
+ Desc: Project 1
+ Notes: 
+%>
+
+<h2>Truck Edit Form</h2>
+<% content_for(:navbar) do %>
+  <div>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/trucks">Back</a></li>
+      </ul>
+    </nav>
+  </div>
+<% end %>
+<!-- Edit Truck Web Form -->
+<!-- truck? PUT /trucks/:id(.:format) trucks#update -->
+<form method="post" action="/trucks/<%= @truck.id %>">
+  <fieldset>
+    <legend><span>Truck Info</span></legend>
+    <input type="hidden" name="_method" value="put" />
+    <label for="one">License Plate: </label>
+    <input id="one" type="text" name="lic_plate" value="<%= @truck.lic_plate %>" placeholder="Number" />
+    <label for="two">Capacity: </label>
+    <input id="two" type="text" name="capacity" value="<%= @truck.capacity %>" placeholder="cu. yds." />
+    <button type="submit">Update</button>
+  </fieldset>
+</form>

@@ -1,0 +1,62 @@
+<%#
+ Filename: app/views/trucks/index.html.erb
+ Directory: /Users/abruzzim/Documents/ga_wdi/projects/rocksolid/
+ Author: Mario Abruzzi
+ Date: 17-Jan-2014
+ Desc: Project 1
+ Notes: 
+%>
+
+<h2>Trucks Management</h2>
+<% content_for(:navbar) do %>
+  <div>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/setup">Setup</a></li>
+        <!-- new_truck GET /trucks/new(.:format) trucks#new -->
+        <li><a href="/trucks/new">Add</a></li>
+      </ul>
+    </nav>
+  </div>
+<% end %>
+<div>
+  <table border="1">
+    <thead>
+      <tr>
+        <th>License Plate</th>
+        <th>Capacity</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @trucks.each do |truck| %>
+      <tr>
+        <td><%= truck.lic_plate %></td>
+        <td><%= truck.capacity %></td>
+        <td>
+          <!-- truck GET /trucks/:id(.:format) trucks#show -->
+          <form method="get" action="/trucks/<%= truck.id %>">
+            <button type="submit">Show</button>
+          </form>
+        </td>
+        <td>
+          <!-- edit_truck GET /trucks/:id/edit(.:format) trucks#edit -->
+          <form method="get" action="/trucks/<%= truck.id %>/edit">
+            <button type="submit">Edit</button>
+          </form>
+        </td>
+        <td>
+          <!-- truck? DELETE /trucks/:id(.:format) trucks#destroy -->
+          <form method="post" action="/trucks/<%= truck.id %>">
+            <input type="hidden" name="_method" value="delete" />
+            <button type="submit">Delete</button>
+          </form>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+<div>

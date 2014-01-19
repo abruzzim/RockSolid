@@ -1,4 +1,5 @@
 class DriversController < ApplicationController
+  # GET /drivers
   def index
     # Get all driver rows.
     @drivers = Driver.all

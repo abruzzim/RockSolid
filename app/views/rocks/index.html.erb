@@ -1,0 +1,68 @@
+<%#
+ Filename: app/views/rocks/index.html.erb
+ Directory: /Users/abruzzim/Documents/ga_wdi/projects/rocksolid/
+ Author: Mario Abruzzi
+ Date: 17-Jan-2014
+ Desc: Project 1
+ Notes: 
+%>
+
+<h2>Rocks Management</h2>
+<% content_for(:navbar) do %>
+  <div>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/setup">Setup</a></li>
+        <!-- new_rock GET /rocks/new(.:format) rocks#new -->
+        <li><a href="/rocks/new">Add</a></li>
+      </ul>
+    </nav>
+  </div>
+<% end %>
+<div>
+  <table border="1">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Grade</th>
+        <th>Form</th>
+        <th>Thickness</th>
+        <th>Unit Price</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @rocks.each do |rock| %>
+      <tr>
+        <td><%= rock.rtype %></td>
+        <td><%= rock.rgrade %></td>
+        <td><%= rock.rform %></td>
+        <td><%= rock.rthickness %></td>
+        <td><%= rock.unit_price %></td>
+        <td>
+          <!-- rock GET /rocks/:id(.:format) rocks#show -->
+          <form method="get" action="/rocks/<%= rock.id %>">
+            <button type="submit">Show</button>
+          </form>
+        </td>
+        <td>
+          <!-- edit_rocck GET /rocks/:id/edit(.:format) rocks#edit -->
+          <form method="get" action="/rocks/<%= rock.id %>/edit">
+            <button type="submit">Edit</button>
+          </form>
+        </td>
+        <td>
+          <!-- rock? DELETE /rocks/:id(.:format) rocks#destroy -->
+          <form method="post" action="/rocks/<%= rock.id %>">
+            <input type="hidden" name="_method" value="delete" />
+            <button type="submit">Delete</button>
+          </form>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+<div>

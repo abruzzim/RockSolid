@@ -1,0 +1,26 @@
+<%#
+ Filename: app/views/rocks/show.html.erb
+ Directory: /Users/abruzzim/Documents/ga_wdi/projects/rocksolid/
+ Author: Mario Abruzzi
+ Date: 17-Jan-2014
+ Desc: Project 1
+ Notes: 
+%>
+
+<h2>Show Rock</h2>
+<% content_for(:navbar) do %>
+  <div>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/rocks">Back</a></li>
+      </ul>
+    </nav>
+  </div>
+<% end %>
+
+<p><b>Type:</b><%= @rock.rtype %></p>
+<p><b>Grade:</b><%= @rock.rgrade %></p>
+<p><b>Form:</b><%= @rock.rform %></p>
+<p><b>Thickness:</b><%= @rock.rthickness %></p>
+<p><b>Unit Price:</b><%= @rock.unit_price %></p>

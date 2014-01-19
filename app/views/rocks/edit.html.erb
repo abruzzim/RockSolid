@@ -1,0 +1,63 @@
+<%#
+ Filename: app/views/rocks/edit.html.erb
+ Directory: /Users/abruzzim/Documents/ga_wdi/projects/rocksolid/
+ Author: Mario Abruzzi
+ Date: 17-Jan-2014
+ Desc: Project 1
+ Notes: 
+%>
+
+<h2>Rock Edit Form</h2>
+<% content_for(:navbar) do %>
+  <div>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/rocks">Back</a></li>
+      </ul>
+    </nav>
+  </div>
+<% end %>
+<!-- Edit Rock Web Form -->
+<!-- rocks? PUT /rocks/:id(.:format) rocks#update -->
+<form method="post" action="/rocks/<%= @rock.id %>">
+  <fieldset>
+    <legend><span>Rock Info</span></legend>
+    <input type="hidden" name="_method" value="put" />
+
+    <label for="one">Type: </label>
+    <input id="one" type="text" name="rtype" value="<%= @rock.rtype %>" list="rtype" autofocus />
+    <datalist id="rtype">
+      <option value="Igneous">
+      <option value="Metamorphic">
+      <option value="Sedimentary">
+    </datalist>
+
+    <label for="two">Grade: </label>
+    <input id="two" type="text" name="rgrade" value="<%= @rock.rgrade %>" list="rgrade" />
+    <datalist id="rgrade">
+      <option value="High">
+      <option value="Medium">
+      <option value="Low">
+    </datalist>
+
+    <label for="three">Form: </label>
+    <input id="three" type="text" name="rform" value="<%= @rock.rform %>" list="rform" />
+    <datalist id="rform">
+      <option value="Silt">
+      <option value="Sand">
+      <option value="Gravel">
+      <option value="Gabion">
+      <option value="Boulder">
+      <option value="Slab">
+    </datalist>
+
+    <label for="four">Thickness: </label>
+    <input id="four" type="text" name="rthickness" value="<%= @rock.rthickness %>" placeholder="inches" />
+
+    <label for="five">Unit Price: </label>
+    <input id="five" type="text" name="unit_price" value="<%= @rock.unit_price %>" placeholder="USD" />
+    
+    <button type="submit">Update</button>
+  </fieldset>
+</form>

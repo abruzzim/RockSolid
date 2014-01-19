@@ -3,6 +3,7 @@ Rocksolid5::Application.routes.draw do
   root :to => "home#index"
   get '/setup' => "home#setup"
   resources :customers
+  resources :drivers
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

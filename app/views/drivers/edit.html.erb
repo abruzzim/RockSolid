@@ -1,0 +1,32 @@
+<%#= debug(assigns) %>
+<%#= debug(headers) %>
+<%#= debug(params) %>
+<%#= debug(session) %>
+<%#= debug(controller) %>
+<%#= debug(flash) %>
+<%#= debug(request) %>
+<%#= debug(response) %>
+
+<h2>Driver Edit Form</h2>
+<% content_for(:navbar) do %>
+  <div>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/drivers">Back</a></li>
+      </ul>
+    </nav>
+  </div>
+<% end %>
+<p><%= @driver.inspect %></p>
+<!-- Edit Driver Web Form -->
+<!-- driver? PUT /drivers/:id(.:format) drivers#update -->
+<form method="post" action="/drivers/<%= @driver.id %>">
+  <fieldset>
+    <legend><span>Driver Info</span></legend>
+    <input type="hidden" name="_method" value="put" />
+    <label for="one">Last Name: </label>
+    <input id="one" type="text" name="name" value="<%= @driver.name %>" />
+    <button type="submit">Update</button>
+  </fieldset>
+</form>

@@ -1,0 +1,80 @@
+<%#
+ Filename: app/views/deliveries/index.html.erb
+ Directory: /Users/abruzzim/Documents/ga_wdi/projects/rocksolid/
+ Author: Mario Abruzzi
+ Date: 17-Jan-2014
+ Desc: Project 1
+ Notes: 
+%>
+
+<h2>Deliveries Management</h2>
+<% content_for(:navbar) do %>
+  <div>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/setup">Setup</a></li>
+        <!-- new_delivery GET /deliveries/new(.:format) deliveries#new -->
+        <li><a href="/deliveries/new">Add</a></li>
+      </ul>
+    </nav>
+  </div>
+<% end %>
+<div>
+  <table border="1">
+    <thead>
+      <tr>
+        <th>Ship Date</th>
+        <th>Truck</th>
+        <th>Driver</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @deliveries.each do |delivery| %>
+      <tr>
+
+        <td><%= delivery.ship_date %></td>
+
+        <% if delivery.truck != nil %>
+          <td><%= delivery.truck.lic_plate %></td>
+        <% else %>
+          <td>- unassigned -</td>
+        <% end %>
+
+        <% if delivery.driver != nil %>
+          <td><%= delivery.driver.name %></td>
+        <% else %>
+          <td>- unassigned -</td>
+        <% end %>
+
+        <%#
+        <td>
+          <!-- delivery GET /deliveries/:id(.:format) deliveries#show -->
+          <form method="get" action="/trucks/< %= delivery.id % >">
+            <button type="submit">Show (pending)</button>
+          </form>
+        </td>
+        %>
+
+        <td>
+          <!-- edit_truck GET /deliveries/:id/edit(.:format) deliveries#edit -->
+          <form method="get" action="/deliveries/<%= delivery.id %>/edit">
+            <button type="submit">Edit</button>
+          </form>
+        </td>
+
+        <%#
+        <td>
+          <!-- delivery? DELETE /deliveries/:id(.:format) deliveries#destroy -->
+          <form method="post" action="/deliveries/< %= delivery.id % >">
+            <input type="hidden" name="_method" value="delete" />
+            <button type="submit">Delete (pending)</button>
+          </form>
+        </td>
+        %>
+
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+<div>

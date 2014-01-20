@@ -7,6 +7,7 @@ Rocksolid5::Application.routes.draw do
   resources :trucks
   resources :rocks
   resources :orders
+  resources :deliveries
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

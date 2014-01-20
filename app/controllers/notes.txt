@@ -1,7 +1,19 @@
+Assign Driver
+===============================================================
+
+old_truck = delivery.truck
+new_truck = Truck.find(params[:truck_id])
+Truck.find(old_truck.id).delivery_id = nil
+Truck.find(new_truck.id).delivery_id = delivery.id
+
+
+X delivery.build_truck.delivery_id_change << 
+
+===============================================================
+
+
 
 New Order Operation Analysis
-----------------------------
-
 ===============================================================
 
 Rock.delete_all

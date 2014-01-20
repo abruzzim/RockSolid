@@ -1,0 +1,66 @@
+<%#
+ Filename: app/views/deliveries/edit.html.erb
+ Directory: /Users/abruzzim/Documents/ga_wdi/projects/rocksolid/
+ Author: Mario Abruzzi
+ Date: 17-Jan-2014
+ Desc: Project 1
+ Notes: 
+%>
+
+<h2>Delivery Edit</h2>
+<% content_for(:navbar) do %>
+  <div>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/deliveries">Back</a></li>
+      </ul>
+    </nav>
+  </div>
+<% end %>
+<!-- Edit Delivery Web Form -->
+<!-- delivery? PUT /deliveries/:id(.:format) deliveries#update -->
+<form method="post" action="/deliveries/<%= @delivery.id %>">
+  <fieldset>
+    <legend><span>Delivery Info</span></legend>
+    <input type="hidden" name="_method" value="put" />
+
+    <label for="one">Ship Date: </label>
+    <input id="one" type="text" name="ship_date" value="<%= @delivery.ship_date %>" />
+
+    <!-- Truck -->
+    <label>Truck: </label>
+    <select name="truck_id">
+      <!-- Truck Selection Default -->
+      <% if @delivery.truck != nil %>
+        <option value="<%= @delivery.truck.id %>"><%= @delivery.truck.lic_plate %></option>
+      <% else %>
+        <option value="">- Truck -</option>
+      <% end %>
+
+      <!-- Truck Listing -->
+      <% @trucks.each do |truck| %>
+      <option value="<%= truck.id %>"><%= truck.lic_plate %></option>
+      <% end %>
+    </select>
+    <!-- Truck End -->
+
+    <!-- Driver -->
+    <label>Driver: </label>
+    <select name="driver_id">
+      <!-- Driver Selection Default -->
+      <% if @delivery.driver != nil %>
+        <option value="<%= @delivery.driver.id %>"><%= @delivery.driver.name %></option>
+      <% else %>
+        <option value="">- Driver -</option>
+      <% end %>
+      <!-- Driver Listing -->
+      <% @drivers.each do |driver| %>
+        <option value="<%= driver.id %>"><%= driver.name %></option>
+      <% end %>
+      <!-- Driver End -->
+    </select>
+
+  </fieldset>
+  <button type="submit">Update</button>
+</form>

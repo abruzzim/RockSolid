@@ -18,9 +18,10 @@
         <th>Ship Date</th>
         <th>Quantity</th>
         <th>Unit Price</th>
+        <th>Total Price</th>
+        <th>Type</th>
+        <th>Grade</th>
         <th>Form</th>
-        <th></th>
-        <th></th>
       </tr>
     </thead>
     <tbody>
@@ -30,10 +31,13 @@
           <td><%= order.customer.name %></td>
           <td><%= order.delivery.ship_date %></td>
           <td><%= order.cargo.quantity.to_f %></td>
-          <td><%= order.cargo.rock.unit_price %></td>
+          <td><%= order.cargo.rock.unit_price.to_f %></td>
+          <td><%= (order.cargo.quantity.to_f) * (order.cargo.rock.unit_price.to_f) %></td>
+          <td><%= order.cargo.rock.rtype %></td>
+          <td><%= order.cargo.rock.rgrade %></td>
           <td><%= order.cargo.rock.rform %></td>
-          <td><form><button>Edit</button></form></td>
-          <td><form><button>Delete</button></form></td>
+          <!-- <td><form><button>Edit</button></form></td> -->
+          <!-- <td><form><button>Delete</button></form></td> -->
         </tr>
       <% end %>
     </tbody>

@@ -11,7 +11,6 @@ class OrdersController < ApplicationController
 
   # GET /orders/1
   def show
-    #@order = Order.find(params[:id])
   end
 
   # GET /orders/new
@@ -50,23 +49,13 @@ class OrdersController < ApplicationController
 
   # GET /orders/1/edit
   def edit
-    #@order = Order.find(params[:id])
   end
 
   # PUT /orders/1
   def update
-    #@order = Order.find(params[:id])
-    #@order.update_attributes(
-    #  lic_plate: params[:lic_plate],
-    #  capacity:  params[:capacity]
-    #  )
-    #redirect_to orders_path
   end
 
   # DELETE /orders/1
   def destroy
-    #@order = Order.find(params[:id])
-    #@order.destroy
-    #redirect_to orders_path
   end
 end

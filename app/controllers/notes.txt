@@ -1,0 +1,79 @@
+
+New Order Operation Analysis
+----------------------------
+
+===============================================================
+
+Rock.delete_all
+Cargo.delete_all
+Delivery.delete_all
+Customer.delete_all
+Address.delete_all
+Order.delete_all
+
+params = {
+  order_num: "ABC123",
+  quantity: 2,
+
+  rtype: "Igneous",
+  rgrade: "High",
+  rform: "Slab",
+  rthickness: "2.5",
+  unit_price: "123.45",
+
+  ship_date: "2112-10-21",
+  ship_street: "Delivery St.",
+  ship_city: "ShipCity",
+  ship_state: "XX",
+  ship_zip: "00000",
+
+  name: "Doynow",
+  street: "Customer St.",
+  city: "CustCity",
+  state: "XX",
+  zip: "99999",
+  }
+
+order = Order.new
+order.order_num = params[:order_num]
+order.build_cargo.quantity = params[:quantity]
+order.cargo.build_rock({
+  rtype:      params[:rtype],
+  rgrade:     params[:rgrade],
+  rform:      params[:rform],
+  rthickness: params[:rthickness],
+  unit_price: params[:unit_price]
+  })
+order.build_delivery.ship_date = params[:ship_date]
+order.delivery.build_address({
+  street: params[:ship_street],
+  city:   params[:ship_city],
+  state:  params[:ship_state], 
+  zip:    params[:ship_zip]
+  })
+order.build_customer.name = params[:name]
+order.customer.addresses << Address.create({
+                              street: params[:street],
+                              city:   params[:city],
+                              state:  params[:state], 
+                              zip:    params[:zip]
+                              }) 
+order.save
+
+cost.to_i = order.rock.unit_price * order.cargo.quantity
+
+==============================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+

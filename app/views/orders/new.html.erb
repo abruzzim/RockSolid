@@ -1,0 +1,93 @@
+<%#
+ Filename: app/views/orders/new.html.erb
+ Directory: /Users/abruzzim/Documents/ga_wdi/projects/rocksolid/
+ Author: Mario Abruzzi
+ Date: 17-Jan-2014
+ Desc: Project 1
+ Notes: 
+%>
+
+<h2>New Order Entry Form</h2>
+<% content_for(:navbar) do %>
+  <div>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/orders">Back</a></li>
+      </ul>
+    </nav>
+  </div>
+<% end %>
+<!-- Add New Order Web Form -->
+<!-- orders POST /orders(.:format) orders#create -->
+<form method="post" action="/orders">
+  <fieldset>
+    <legend><span>Order Info</span></legend>
+    <label for="one">Order Number: </label>
+    <input id="one" type="text" name="order_num" autofocus />
+  </fieldset>
+
+  <fieldset>
+    <legend><span>Customer Info</span></legend>
+    <label for="one">Last Name: </label>
+    <input id="one" type="text" name="name" placeholder="Last Name" />
+    <label for="two">Street: </label>
+    <input id="two" type="text" name="street" placeholder="Street" />
+    <label for="three">City: </label>
+    <input id="three" type="text" name="city" placeholder="City" />
+    <label for="four">State: </label>
+    <input id="four" type="text" name="state" placeholder="State" />
+    <label for="five">Zip: </label>
+    <input id="five" type="text" name="zip" placeholder="Zip" />
+  </fieldset>
+
+  <fieldset>
+    <legend><span>Rock Info</span></legend>
+    <label for="one">Type: </label>
+    <input id="one" type="text" name="rtype" list="rtype" />
+    <datalist id="rtype">
+      <option value="Igneous">
+      <option value="Metamorphic">
+      <option value="Sedimentary">
+    </datalist>
+    <label for="two">Grade: </label>
+    <input id="two" type="text" name="rgrade" list="rgrade" />
+    <datalist id="rgrade">
+      <option value="High">
+      <option value="Medium">
+      <option value="Low">
+    </datalist>
+    <label for="three">Form: </label>
+    <input id="three" type="text" name="rform" list="rform" />
+    <datalist id="rform">
+      <option value="Silt">
+      <option value="Sand">
+      <option value="Gravel">
+      <option value="Gabion">
+      <option value="Boulder">
+      <option value="Slab">
+    </datalist>
+    <label for="four">Thickness: </label>
+    <input id="four" type="text" name="rthickness" placeholder="inches" />
+    <label for="five">Unit Price: </label>
+    <input id="five" type="text" name="unit_price" placeholder="USD" />
+    <label for="six">Quantity: </label>
+    <input id="six" type="text" name="quantity" placeholder="cu. yds." />
+  </fieldset>
+
+  <fieldset>
+    <legend><span>Delivery Info</span></legend>
+    <label for="one">Ship Date: </label>
+    <input id="one" type="text" name="ship_date" placeholder="Date" />
+    <label for="two">Street: </label>
+    <input id="two" type="text" name="ship_street" placeholder="Street" />
+    <label for="three">City: </label>
+    <input id="three" type="text" name="ship_city" placeholder="City" />
+    <label for="four">State: </label>
+    <input id="four" type="text" name="ship_state" placeholder="State" />
+    <label for="five">Zip: </label>
+    <input id="five" type="text" name="ship_zip" placeholder="Zip" />
+  </fieldset>
+
+  <button type="submit">Add</button>
+</form>

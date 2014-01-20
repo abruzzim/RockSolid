@@ -3,32 +3,39 @@
   <div>
     <nav>
       <ul>
-        <li><a href="#">Create (Pending)</a></li>
+        <li><a href="/orders/new">Add</a></li>
         <li><a href="/setup">Setup</a></li>
       </ul>
     </nav>
   </div>
 <% end %>
 <div>
-  <table>
+  <table border="1">
     <thead>
       <tr>
-        <th>Order Number</th>
+        <th>Order</th>
+        <th><a href="/customers">Customer</a></th>
+        <th>Ship Date</th>
+        <th>Quantity</th>
+        <th>Unit Price</th>
+        <th>Form</th>
+        <th></th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>
-          <form>
-            <button>Edit</button>
-          </form>
-        </td>
-        <td>
-          <form>
-            <button>Delete</button>
-          </form>
-        </td>
-      </tr>
+      <% @orders.each do |order| %>
+        <tr>
+          <td><%= order.order_num %></td>
+          <td><%= order.customer.name %></td>
+          <td><%= order.delivery.ship_date %></td>
+          <td><%= order.cargo.quantity.to_f %></td>
+          <td><%= order.cargo.rock.unit_price %></td>
+          <td><%= order.cargo.rock.rform %></td>
+          <td><form><button>Edit</button></form></td>
+          <td><form><button>Delete</button></form></td>
+        </tr>
+      <% end %>
     </tbody>
   </table>
 </div>

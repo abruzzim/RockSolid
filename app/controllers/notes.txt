@@ -13,6 +13,7 @@ Order.delete_all
 
 params = {
   order_num: "ABC123",
+
   quantity: 2,
 
   rtype: "Igneous",
@@ -31,7 +32,7 @@ params = {
   street: "Customer St.",
   city: "CustCity",
   state: "XX",
-  zip: "99999",
+  zip: "99999"
   }
 
 order = Order.new
@@ -44,13 +45,6 @@ order.cargo.build_rock({
   rthickness: params[:rthickness],
   unit_price: params[:unit_price]
   })
-order.build_delivery.ship_date = params[:ship_date]
-order.delivery.build_address({
-  street: params[:ship_street],
-  city:   params[:ship_city],
-  state:  params[:ship_state], 
-  zip:    params[:ship_zip]
-  })
 order.build_customer.name = params[:name]
 order.customer.addresses << Address.create({
                               street: params[:street],
@@ -58,22 +52,15 @@ order.customer.addresses << Address.create({
                               state:  params[:state], 
                               zip:    params[:zip]
                               }) 
+order.build_delivery.ship_date = params[:ship_date]
+order.delivery.build_address({
+  street: params[:ship_street],
+  city:   params[:ship_city],
+  state:  params[:ship_state], 
+  zip:    params[:ship_zip]
+  })
 order.save
 
-cost.to_i = order.rock.unit_price * order.cargo.quantity
+cost = (order.rock.unit_price * order.cargo.quantity).to_i
 
-==============================================================
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+===========================================================

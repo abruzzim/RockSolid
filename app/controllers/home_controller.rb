@@ -1,9 +1,12 @@
 class HomeController < ApplicationController
 
-  # Handles root route.
+  # GET /
   def index
+    @orders = Order.all
   end
-  # Handles /setup route.
+
+  # GET /setup
   def setup
   end
+
 end

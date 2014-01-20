@@ -41,7 +41,8 @@ class CustomersController < ApplicationController
   def update
     # Update row from template view parameters.
     c = Customer.find(params[:id])
-    c.name                   = params[:name]
+    #c.name                   = params[:name]
+    c.update_attributes(name: params[:name])
     c.addresses.first.update_attributes(street: params[:street])
     c.addresses.first.update_attributes(city: params[:city])
     c.addresses.first.update_attributes(state: params[:state])

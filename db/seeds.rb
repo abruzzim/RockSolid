@@ -6,6 +6,9 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+Cargo.delete_all
+Address.delete_all
+
 # Add New Customer with linked (new) Address.
 
 class CustomersRow
@@ -32,7 +35,7 @@ class CustomersRow
   end
 end
 Customer.delete_all
-6.times {CustomersRow.new.populate}
+10.times {CustomersRow.new.populate}
 
 # Add New Order with (linked) new Cargo and (linked) new Rock
 
@@ -68,8 +71,8 @@ class OrderRow
     end
   end
 end
-Order.destroy_all
-OrderRow.new.populate
+Order.delete_all
+#OrderRow.new.populate
 
 # Add New Delivery with (linked) new Customer, Order, Cargo and Rock
 
@@ -106,7 +109,7 @@ class DeliveriesRow
   end
 end
 Delivery.delete_all
-DeliveriesRow.new.populate
+#DeliveriesRow.new.populate
 
 # Add Rock
 
@@ -133,8 +136,8 @@ class RockRow
     end
   end
 end
-Rock.destroy_all
-RockRow.new.populate
+Rock.delete_all
+#RockRow.new.populate
 
 # Add New Drivers.
 

@@ -1,3 +1,12 @@
+<%#
+ Filename: app/views/customers/index.html.erb
+ Directory: /Users/abruzzim/Documents/ga_wdi/projects/rocksolid/
+ Author: Mario Abruzzi
+ Date: 17-Jan-2014
+ Desc: Project 1
+ Notes: 
+%>
+
 <h2>Customer Management</h2>
 <% content_for(:navbar) do %>
   <div>
@@ -20,8 +29,6 @@
         <th>City</th>
         <th>State</th>
         <th>Zip</th>
-        <th></th>
-        <th></th>
       </tr>
     </thead>
     <tbody>
@@ -32,6 +39,13 @@
         <td><%= customer.addresses.first.city %></td>
         <td><%= customer.addresses.first.state %></td>
         <td><%= customer.addresses.first.zip %></td>
+        <td>
+          <!-- customer GET /customers/:id(.:format) customers#show -->
+          <form method="get" action="/customers/<%= customer.id %>">
+            <button type="submit">Show</button>
+          </form>
+        </td>
+
         <td>
           <!-- edit_customer GET /customers/:id/edit(.:format) customers#edit -->
           <form method="get" action="/customers/<%= customer.id %>/edit">

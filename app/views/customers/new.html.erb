@@ -1,4 +1,13 @@
-<h2>New Customer Entry Form</h2>
+<%#
+ Filename: app/views/customers/new.html.erb
+ Directory: /Users/abruzzim/Documents/ga_wdi/projects/rocksolid/
+ Author: Mario Abruzzi
+ Date: 17-Jan-2014
+ Desc: Project 1
+ Notes: 
+%>
+
+<h2>New Customer Entry</h2>
 <% content_for(:navbar) do %>
   <div>
     <nav>
@@ -12,18 +21,21 @@
 <!-- Add New Customer Web Form -->
 <!-- customers POST /customers(.:format) customers#create -->
 <form method="post" action="/customers">
+
   <fieldset>
     <legend><span>Customer Info</span></legend>
     <label for="one">Last Name: </label>
-    <input id="one" type="text" name="name" value="" placeholder="Name"/>
+    <input id="one" type="text" name="name" value="" placeholder="Last Name"/>
     <label for="two">Street: </label>
-    <input id="two" type="text" name="street" value="" placeholder="Address"/>
+    <input id="two" type="text" name="street" value="" placeholder="Street"/>
     <label for="three">City: </label>
     <input id="three" type="text" name="city" value="" placeholder="City"/>
     <label for="four">State: </label>
     <input id="four" type="text" name="state" value="" placeholder="State"/>
     <label for="five">Zip: </label>
     <input id="five" type="text" name="zip" value="" placeholder="Zip"/>
-    <button type="submit">Add</button>
   </fieldset>
+
+  <button type="submit">Add</button>
+
 </form>

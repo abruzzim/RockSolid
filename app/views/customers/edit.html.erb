@@ -1,4 +1,13 @@
-<h2>Customer Edit Form</h2>
+<%#
+ Filename: app/views/customers/edit.html.erb
+ Directory: /Users/abruzzim/Documents/ga_wdi/projects/rocksolid/
+ Author: Mario Abruzzi
+ Date: 17-Jan-2014
+ Desc: Project 1
+ Notes: 
+%>
+
+<h2>Customer Edit</h2>
 <% content_for(:navbar) do %>
   <div>
     <nav>
@@ -11,20 +20,25 @@
 <% end %>
 <!-- Edit Customer Web Form -->
 <!-- customer? PUT /customers/:id(.:format) customers#update -->
-<form method="post" action="/customers/<%= @cid %>">
+<form method="post" action="/customers/<%= @customer.id %>">
+
   <fieldset>
     <legend><span>Customer Info</span></legend>
+
     <input type="hidden" name="_method" value="put"/>
+
     <label for="one">Last Name: </label>
-    <input id="one" type="text" name="name" value="<%= @name %>" placeholder="Name"/>
+    <input id="one" type="text" name="name" value="<%= @customer.name %>" />
     <label for="two">Street: </label>
-    <input id="two" type="text" name="street" value="<%= @street %>" placeholder="Address"/>
+    <input id="two" type="text" name="street" value="<%= @customer.addresses.first.street %>" />
     <label for="three">City: </label>
-    <input id="three" type="text" name="city" value="<%= @city %>" placeholder="City"/>
+    <input id="three" type="text" name="city" value="<%= @customer.addresses.first.city %>" />
     <label for="four">State: </label>
-    <input id="four" type="text" name="state" value="<%= @state %>" placeholder="State"/>
+    <input id="four" type="text" name="state" value="<%= @customer.addresses.first.state %>" />
     <label for="five">Zip: </label>
-    <input id="five" type="text" name="zip" value="<%= @zip %>" placeholder="Zip"/>
-    <button type="submit">Update</button>
+    <input id="five" type="text" name="zip" value="<%= @customer.addresses.first.zip %>" />
   </fieldset>
+
+  <button type="submit">Update</button>
+
 </form>
